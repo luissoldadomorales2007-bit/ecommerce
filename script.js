@@ -28,7 +28,7 @@
         id: 5, nombre: "Alitas Picantes",
         descripcion: "Alitas crujientes con salsa sriracha y miel. Ración de 8 unidades.",
         precio: 9.90, categoria: "aves",
-        imagen: "resources/Alitas.jpg"
+        imagen: "resources/alitas.jpg"
       },
       {
         id: 6, nombre: "Verduras a la Brasa",
