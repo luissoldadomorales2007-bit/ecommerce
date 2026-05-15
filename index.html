@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Brasa — Restaurante</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+ 
+  <header>
+    <nav>
+      <div class="nav-logo">La <span>Brasa</span></div>
+      <div class="nav-acciones">
+        <span id="bienvenida"></span>
+        <button id="btn-sesion" onclick="abrirModalSesion()">Iniciar sesión</button>
+        <button id="btn-carrito" onclick="toggleCarrito()">
+           Carrito
+          <span id="contador-carrito">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+ 
+  <section class="hero">
+    <h1>Sabor a <em>fuego</em>,<br>directo a tu puerta</h1>
+    <p>Carnes a la brasa, marinadas artesanales y acompañamientos de temporada. Pedido online en minutos.</p>
+  </section>
+ 
+  <main>
+
+    <div class="controles">
+      <label for="filtro-categoria">Categoría:</label>
+      <select id="filtro-categoria" onchange="aplicarFiltroYOrden()">
+        <option value="todas">Todas</option>
+        <option value="carnes">Carnes</option>
+        <option value="aves">Aves</option>
+        <option value="vegetariano">Vegetariano</option>
+        <option value="bebidas">Bebidas</option>
+        <option value="postres">Postres</option>
+      </select>
+ 
+      <button id="btn-ordenar" onclick="toggleOrden()">
+        <span id="icono-orden">↕</span>
+        Precio
+      </button>
+    </div>
+ 
+    <div id="grid-productos"></div>
+  </main>
+ 
+  <footer>
+     La Brasa · Restaurante de cocina a las brasas · La Hoguerita
+  </footer>
+ 
+  <div class="overlay" id="overlay" onclick="cerrarCarrito()"></div>
+ 
+  <div id="panel-carrito">
+    <div class="carrito-header">
+      <h2>Tu pedido</h2>
+      <button id="btn-cerrar-carrito" onclick="cerrarCarrito()">✕</button>
+    </div>
+    <div id="lista-carrito">
+      <p class="carrito-vacio">El carrito está vacío.</p>
+    </div>
+    <div class="carrito-resumen">
+      <div class="resumen-fila">
+        <span>Subtotal</span>
+        <span id="subtotal">0,00 €</span>
+      </div>
+      <div class="resumen-fila">
+        <span>Envío</span>
+        <span id="coste-envio">—</span>
+      </div>
+      <div class="resumen-fila total">
+        <span>Total</span>
+        <span id="total-final">0,00 €</span>
+      </div>
+      <button id="btn-pedir" onclick="hacerPedido()" disabled>Realizar pedido</button>
+    </div>
+  </div>
+ 
+  <div id="modal-sesion">
+    <div class="modal-caja">
+      <h2>Iniciar sesión</h2>
+      <input type="text"id="input-usuario"placeholder="Usuario"     />
+      <input type="password" id="input-password"placeholder="Contraseña"  />
+      <p id="msg-sesion"></p>
+      <button onclick="iniciarSesion()">Entrar</button>
+      <button class="btn-cancelar" onclick="cerrarModalSesion()">Cancelar</button>
+    </div>
+  </div>
+ 
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
